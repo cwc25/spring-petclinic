@@ -3,23 +3,24 @@
 pipeline {
   agent none
   stages {
-   /* stage('Maven Install') {
+    stage('Maven Install') {
       agent {
         docker {
           image 'maven:3.5.0'
         }
       }
       steps {
-        sh 'mvn clean install'
+        /*sh 'mvn clean install'*/
+        sh 'mvn clean package sonar:sonar'
       }
-    } */
-    stage('Docker Build') {
+    } 
+   /*  stage('Docker Build') {
       agent any
       steps {
         sh 'docker build -t iaarm88/spring-petclinic:latest .'
       }
     }
-    stage('Docker Push') {
+   stage('Docker Push') {
       agent any
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
@@ -27,6 +28,6 @@ pipeline {
           sh 'docker push iaarm88/spring-petclinic:latest'
         }
       }
-    }
+    }*/
   }
 }
