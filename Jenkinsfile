@@ -10,8 +10,9 @@ pipeline {
         }
       }
       steps {
-        /*sh 'mvn clean install'*/
-        sh 'mvn clean package sonar:sonar'
+        /*sh 'mvn clean install'
+        sh 'mvn clean package sonar:sonar'*/
+        sh 'mvn sonar:sonar'
       }
     } 
    /*  stage('Docker Build') {
